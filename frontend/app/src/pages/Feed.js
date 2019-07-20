@@ -24,7 +24,7 @@ class Feed extends Component {
 
     async componentDidMount(){
         const response = await api.get('VinhoController?action=getListVinho');
-        this.setState({ feed: response.data });
+        this.setState({ feed: response.data[0]['id'] ? response.data: [] });
     }
 
     handleSubmit = async function(quantidade, id, e) {
